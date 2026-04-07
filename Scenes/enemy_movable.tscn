@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b8hmmxqptvabf"]
+
+[ext_resource type="PackedScene" uid="uid://d017uouokn3ur" path="res://Scenes/enemy.tscn" id="1_qux2y"]
+[ext_resource type="Script" uid="uid://dyrv1hoveo4ac" path="res://Scripts/movable-enemy.gd" id="2_ddme2"]
+
+[node name="Enemy-movable" unique_id=1346230151 instance=ExtResource("1_qux2y")]
+script = ExtResource("2_ddme2")
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1167637028]
+flip_h = true
+
+[node name="RayCastRight" type="RayCast2D" parent="." index="2" unique_id=897015446]
+position = Vector2(0, 6)
+target_position = Vector2(15, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="." index="3" unique_id=2140681648]
+position = Vector2(0, 6)
+target_position = Vector2(-15, 0)
