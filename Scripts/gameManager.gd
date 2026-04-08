@@ -1,9 +1,8 @@
 extends Node
 
-@onready var killzone = $"../../Killzone"
 var coin = 0
 
-func add_coin():
+func add_coin(killzone):
 	coin += 1
 	
 	if coin == 17:
