@@ -296,6 +296,9 @@ _data = {
 
 [node name="Game" type="Node2D" unique_id=1489145994]
 
+[node name="GameManager" type="Node" parent="." unique_id=1850066214]
+script = ExtResource("10_ldgsr")
+
 [node name="TileMap" type="TileMap" parent="." unique_id=621001856]
 tile_set = SubResource("TileSet_wowpa")
 format = 2
@@ -429,5 +432,55 @@ position = Vector2(424, -125)
 [node name="Enemy-movable2" parent="Enemies" unique_id=242766615 instance=ExtResource("9_h4fw4")]
 position = Vector2(600, 18)
 
-[node name="GameManager" type="Node" parent="." unique_id=1850066214]
-script = ExtResource("10_ldgsr")
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1757719198]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1420498444]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameScreen" type="Panel" parent="CanvasLayer/Control" unique_id=692155000]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/GameScreen" unique_id=414874227]
+self_modulate = Color(1, 1, 1, 0.627451)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -192.0
+offset_top = 20.0
+offset_right = -22.0
+offset_bottom = 106.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 1)
+theme_override_font_sizes/font_size = 30
+text = "Pause"
+
+[node name="PausePupup" type="Panel" parent="CanvasLayer/Control" unique_id=1711655533]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverPopup" type="Panel" parent="CanvasLayer/Control" unique_id=991149656]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MainMenu" type="Panel" parent="CanvasLayer/Control" unique_id=1163560511]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
