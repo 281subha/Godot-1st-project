@@ -19,15 +19,18 @@ func Restart_game():
 	is_restart = true
 	get_tree().reload_current_scene()
 
+func Win():
+	ui_manager.ShowWinPopup()
+
 func Game_over():
+	Pause_game()
 	ui_manager.ShowGameoverPopup()
 	Reset_coin()
 
-func Add_coin(killzone):
+func Add_coin():
 	coin += 1
-	
 	if coin == 17:
-		killzone.activate_killzone()
+		Win()
 
 func Reset_coin():
 	coin = 0

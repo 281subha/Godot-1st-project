@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var pausePopup = $Control/PausePupup
 @onready var gameOverPopup = $Control/GameOverPopup
 @onready var mainMenu = $Control/MainMenu
+@onready var winPopup = $Control/WinPopup
 
 
 func _ready() -> void:
@@ -18,11 +19,12 @@ func _ready() -> void:
 func hide_all():
 	pausePopup.hide()
 	gameOverPopup.hide()
+	winPopup.hide()
 	mainMenu.hide()
 
 func _on_play_btn_pressed() -> void:
 	hide_all()
-	GameManager.Resume_game()
+	GameManager.Restart_game()
 	
 func _on_pause_btn_pressed() -> void:
 	GameManager.Pause_game()
@@ -38,6 +40,9 @@ func _on_restart_btn_pressed() -> void:
 
 func _on_menu_btn_pressed() -> void:
 	mainMenu.show()
+
+func ShowWinPopup():
+	winPopup.show()
 
 func ShowGameoverPopup():
 	gameOverPopup.show()

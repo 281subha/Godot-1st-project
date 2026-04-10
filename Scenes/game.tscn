@@ -530,6 +530,61 @@ size_flags_vertical = 6
 theme_override_font_sizes/font_size = 24
 text = "Main Menu"
 
+[node name="WinPopup" type="Panel" parent="CanvasLayer/Control" unique_id=1480332823]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control/WinPopup" unique_id=687853371]
+self_modulate = Color(0, 0, 0, 0.61960787)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/WinPopup/Panel" unique_id=1597586242]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/WinPopup/Panel/VBoxContainer" unique_id=397350202]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 36
+text = "YOU WIN!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartBtn" type="Button" parent="CanvasLayer/Control/WinPopup/Panel/VBoxContainer" unique_id=1528352831]
+custom_minimum_size = Vector2(250, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 24
+text = "Restart"
+
+[node name="MenuBtn" type="Button" parent="CanvasLayer/Control/WinPopup/Panel/VBoxContainer" unique_id=1719291075]
+custom_minimum_size = Vector2(250, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 24
+text = "Main Menu"
+
 [node name="GameOverPopup" type="Panel" parent="CanvasLayer/Control" unique_id=1102229588]
 layout_mode = 1
 anchors_preset = 15
@@ -578,7 +633,6 @@ theme_override_font_sizes/font_size = 24
 text = "Main Menu"
 
 [node name="MainMenu" type="Panel" parent="CanvasLayer/Control" unique_id=1163560511]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -639,6 +693,8 @@ text = "Quit"
 [connection signal="pressed" from="CanvasLayer/Control/PausePupup/Panel/VBoxContainer/ResumeBtn" to="CanvasLayer" method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/PausePupup/Panel/VBoxContainer/RestartBtn" to="CanvasLayer" method="_on_restart_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/PausePupup/Panel/VBoxContainer/MenuBtn" to="CanvasLayer" method="_on_menu_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/WinPopup/Panel/VBoxContainer/RestartBtn" to="CanvasLayer" method="_on_restart_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/WinPopup/Panel/VBoxContainer/MenuBtn" to="CanvasLayer" method="_on_menu_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/GameOverPopup/Panel/VBoxContainer/RestartBtn" to="CanvasLayer" method="_on_restart_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/GameOverPopup/Panel/VBoxContainer/MenuBtn" to="CanvasLayer" method="_on_menu_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/MainMenu/Panel2/VBoxContainer/PlayBtn" to="CanvasLayer" method="_on_play_btn_pressed"]
