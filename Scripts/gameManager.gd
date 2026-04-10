@@ -20,6 +20,7 @@ func Restart_game():
 	get_tree().reload_current_scene()
 
 func Win():
+	Pause_game()
 	ui_manager.ShowWinPopup()
 
 func Game_over():

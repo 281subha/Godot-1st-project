@@ -19,6 +19,15 @@ config/icon="res://Assets/icon.svg"
 
 GameManager="*uid://ygg5iy1xlfn3"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=640
+window/size/window_height_override=360
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [dotnet]
 
 project/assembly_name="First Project"
