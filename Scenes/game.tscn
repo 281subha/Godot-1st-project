@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d017uouokn3ur" path="res://Scenes/enemy.tscn" id="8_v158k"]
 [ext_resource type="PackedScene" uid="uid://b8hmmxqptvabf" path="res://Scenes/enemy_movable.tscn" id="9_h4fw4"]
 [ext_resource type="Script" uid="uid://ygg5iy1xlfn3" path="res://Scripts/gameManager.gd" id="10_ldgsr"]
+[ext_resource type="Script" uid="uid://ccknrxabxiukw" path="res://Scripts/UIManager.gd" id="11_o5yvi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3dryh"]
 texture = ExtResource("3_wrm1d")
@@ -294,6 +295,12 @@ _data = {
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1l0tm"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldgsr"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5yvi"]
+bg_color = Color(0.23202682, 0.35147294, 0.6128779, 1)
+
 [node name="Game" type="Node2D" unique_id=1489145994]
 
 [node name="GameManager" type="Node" parent="." unique_id=1850066214]
@@ -433,6 +440,7 @@ position = Vector2(424, -125)
 position = Vector2(600, 18)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1757719198]
+script = ExtResource("11_o5yvi")
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=1420498444]
 layout_mode = 3
@@ -452,19 +460,18 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Button" type="Button" parent="CanvasLayer/Control/GameScreen" unique_id=414874227]
-self_modulate = Color(1, 1, 1, 0.627451)
+[node name="PauseBtn" type="Button" parent="CanvasLayer/Control/GameScreen" unique_id=1536352906]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -192.0
+offset_left = -172.0
 offset_top = 20.0
-offset_right = -22.0
-offset_bottom = 106.0
+offset_right = -20.0
+offset_bottom = 85.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 22
 text = "Pause"
 
 [node name="PausePupup" type="Panel" parent="CanvasLayer/Control" unique_id=1711655533]
@@ -475,12 +482,164 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GameOverPopup" type="Panel" parent="CanvasLayer/Control" unique_id=991149656]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Panel" type="Panel" parent="CanvasLayer/Control/PausePupup" unique_id=1051267371]
+self_modulate = Color(0, 0, 0, 0.61960787)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/PausePupup/Panel" unique_id=1811437585]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="ResumeBtn" type="Button" parent="CanvasLayer/Control/PausePupup/Panel/VBoxContainer" unique_id=490955525]
+custom_minimum_size = Vector2(250, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "Resume"
+
+[node name="RestartBtn" type="Button" parent="CanvasLayer/Control/PausePupup/Panel/VBoxContainer" unique_id=1574102087]
+custom_minimum_size = Vector2(250, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 24
+text = "Restart"
+
+[node name="MenuBtn" type="Button" parent="CanvasLayer/Control/PausePupup/Panel/VBoxContainer" unique_id=898331660]
+custom_minimum_size = Vector2(250, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 24
+text = "Main Menu"
+
+[node name="GameOverPopup" type="Panel" parent="CanvasLayer/Control" unique_id=1102229588]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control/GameOverPopup" unique_id=1105532822]
+self_modulate = Color(0, 0, 0, 0.61960787)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/GameOverPopup/Panel" unique_id=5169850]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="RestartBtn" type="Button" parent="CanvasLayer/Control/GameOverPopup/Panel/VBoxContainer" unique_id=1862643154]
+custom_minimum_size = Vector2(250, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 24
+text = "Restart"
+
+[node name="MenuBtn" type="Button" parent="CanvasLayer/Control/GameOverPopup/Panel/VBoxContainer" unique_id=2058999101]
+custom_minimum_size = Vector2(250, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 24
+text = "Main Menu"
 
 [node name="MainMenu" type="Panel" parent="CanvasLayer/Control" unique_id=1163560511]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ldgsr")
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/Control/MainMenu" unique_id=487277450]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -230.0
+offset_right = 200.0
+offset_bottom = 230.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_o5yvi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MainMenu/Panel2" unique_id=1818538558]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="PlayBtn" type="Button" parent="CanvasLayer/Control/MainMenu/Panel2/VBoxContainer" unique_id=1797844223]
+custom_minimum_size = Vector2(250, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "Play"
+
+[node name="SettingsBtn" type="Button" parent="CanvasLayer/Control/MainMenu/Panel2/VBoxContainer" unique_id=1039093033]
+custom_minimum_size = Vector2(250, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 24
+text = "Settings"
+
+[node name="QuitBtn" type="Button" parent="CanvasLayer/Control/MainMenu/Panel2/VBoxContainer" unique_id=1394450386]
+custom_minimum_size = Vector2(250, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 24
+text = "Quit"
+
+[connection signal="pressed" from="CanvasLayer/Control/GameScreen/PauseBtn" to="CanvasLayer" method="_on_pause_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/PausePupup/Panel/VBoxContainer/ResumeBtn" to="CanvasLayer" method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/PausePupup/Panel/VBoxContainer/RestartBtn" to="CanvasLayer" method="_on_restart_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/PausePupup/Panel/VBoxContainer/MenuBtn" to="CanvasLayer" method="_on_menu_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/GameOverPopup/Panel/VBoxContainer/RestartBtn" to="CanvasLayer" method="_on_restart_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/GameOverPopup/Panel/VBoxContainer/MenuBtn" to="CanvasLayer" method="_on_menu_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/MainMenu/Panel2/VBoxContainer/PlayBtn" to="CanvasLayer" method="_on_play_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/MainMenu/Panel2/VBoxContainer/QuitBtn" to="CanvasLayer" method="_on_quit_btn_pressed"]

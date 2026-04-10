@@ -10,7 +10,8 @@ func _on_body_entered(body: Node2D) -> void:
 func activate_killzone():
 	print("Player died")
 	timer.start()
-	GameManager.reset_coin()
+	#GameManager.reset_coin()
 	
 func _on_timer_timeout() -> void:
-	get_tree().reload_current_scene()
+	#get_tree().reload_current_scene()
+	GameManager.Game_over()
