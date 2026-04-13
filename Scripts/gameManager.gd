@@ -4,6 +4,7 @@ var ui_manager = null
 var coin = 0
 var is_restart = false
 
+
 func _ready() -> void:
 	Engine.time_scale = 0
 	

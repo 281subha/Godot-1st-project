@@ -298,6 +298,9 @@ _data = {
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1l0tm"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1phco"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldgsr"]
 bg_color = Color(0, 0, 0, 1)
 
@@ -324,7 +327,7 @@ script = ExtResource("2_qxrlw")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1336255501]
 position = Vector2(0, -9)
-zoom = Vector2(4, 4)
+zoom = Vector2(5, 5)
 limit_bottom = 92
 position_smoothing_enabled = true
 
@@ -468,65 +471,47 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -172.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = 85.0
+offset_left = -307.0
+offset_top = 56.0
+offset_right = -96.0
+offset_bottom = 151.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 1)
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 37
 text = "Pause"
 
-[node name="RightBtn" type="Button" parent="CanvasLayer/Control/GameScreen" unique_id=415227215]
+[node name="Panel" type="Panel" parent="CanvasLayer/Control/GameScreen" unique_id=594320962]
 layout_mode = 1
-anchors_preset = 3
+anchors_preset = -1
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -210.0
-offset_top = -208.0
-offset_right = -70.0
-offset_bottom = -68.0
+offset_left = -603.0
+offset_top = -306.0
 grow_horizontal = 0
 grow_vertical = 0
-icon = ExtResource("12_rku1e")
-flat = true
-icon_alignment = 1
-expand_icon = true
+pivot_offset = Vector2(603, 306)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1phco")
 
-[node name="LeftBtn" type="Button" parent="CanvasLayer/Control/GameScreen" unique_id=105110053]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -390.0
-offset_top = -207.0
-offset_right = -250.0
-offset_bottom = -67.0
-grow_horizontal = 0
-grow_vertical = 0
-icon = ExtResource("13_rfjv2")
-flat = true
-icon_alignment = 1
-expand_icon = true
+[node name="RightButton" type="TouchScreenButton" parent="CanvasLayer/Control/GameScreen/Panel" unique_id=1108444248]
+position = Vector2(324, 66)
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("12_rku1e")
+action = "ui_right"
 
-[node name="JumpBtn" type="Button" parent="CanvasLayer/Control/GameScreen" unique_id=1843090449]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 80.0
-offset_top = -209.0
-offset_right = 236.0
-offset_bottom = -59.0
-grow_vertical = 0
-icon = ExtResource("14_1phco")
-flat = true
-icon_alignment = 1
-expand_icon = true
+[node name="LeftButton" type="TouchScreenButton" parent="CanvasLayer/Control/GameScreen/Panel" unique_id=1128449853]
+position = Vector2(106, 66)
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("13_rfjv2")
+action = "ui_left"
+
+[node name="JumpButton" type="TouchScreenButton" parent="CanvasLayer/Control/GameScreen" unique_id=1565751131]
+position = Vector2(87, 840)
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("14_1phco")
+action = "ui_accept"
 
 [node name="PausePupup" type="Panel" parent="CanvasLayer/Control" unique_id=1711655533]
 visible = false
@@ -545,10 +530,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -200.0
-offset_right = 200.0
-offset_bottom = 200.0
+offset_left = -250.0
+offset_top = -300.0
+offset_right = 250.0
+offset_bottom = 300.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/PausePupup/Panel" unique_id=1811437585]
 layout_mode = 1
@@ -561,28 +546,28 @@ theme_override_constants/separation = 0
 alignment = 1
 
 [node name="ResumeBtn" type="Button" parent="CanvasLayer/Control/PausePupup/Panel/VBoxContainer" unique_id=490955525]
-custom_minimum_size = Vector2(250, 60)
+custom_minimum_size = Vector2(270, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "Resume"
 
 [node name="RestartBtn" type="Button" parent="CanvasLayer/Control/PausePupup/Panel/VBoxContainer" unique_id=1574102087]
-custom_minimum_size = Vector2(250, 60)
+custom_minimum_size = Vector2(270, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "Restart"
 
 [node name="MenuBtn" type="Button" parent="CanvasLayer/Control/PausePupup/Panel/VBoxContainer" unique_id=898331660]
-custom_minimum_size = Vector2(250, 60)
+custom_minimum_size = Vector2(270, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "Main Menu"
 
 [node name="WinPopup" type="Panel" parent="CanvasLayer/Control" unique_id=1480332823]
@@ -602,10 +587,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -200.0
-offset_right = 200.0
-offset_bottom = 200.0
+offset_left = -250.0
+offset_top = -300.0
+offset_right = 250.0
+offset_bottom = 300.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/WinPopup/Panel" unique_id=1597586242]
 layout_mode = 1
@@ -620,25 +605,25 @@ alignment = 1
 [node name="Label" type="Label" parent="CanvasLayer/Control/WinPopup/Panel/VBoxContainer" unique_id=397350202]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 40
 text = "YOU WIN!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RestartBtn" type="Button" parent="CanvasLayer/Control/WinPopup/Panel/VBoxContainer" unique_id=1528352831]
-custom_minimum_size = Vector2(250, 60)
+custom_minimum_size = Vector2(270, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "Restart"
 
 [node name="MenuBtn" type="Button" parent="CanvasLayer/Control/WinPopup/Panel/VBoxContainer" unique_id=1719291075]
-custom_minimum_size = Vector2(250, 60)
+custom_minimum_size = Vector2(270, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "Main Menu"
 
 [node name="GameOverPopup" type="Panel" parent="CanvasLayer/Control" unique_id=1102229588]
@@ -659,9 +644,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -200.0
-offset_top = -150.0
+offset_top = -200.0
 offset_right = 200.0
-offset_bottom = 150.0
+offset_bottom = 200.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/GameOverPopup/Panel" unique_id=5169850]
 layout_mode = 1
@@ -674,19 +659,19 @@ theme_override_constants/separation = 0
 alignment = 1
 
 [node name="RestartBtn" type="Button" parent="CanvasLayer/Control/GameOverPopup/Panel/VBoxContainer" unique_id=1862643154]
-custom_minimum_size = Vector2(250, 60)
+custom_minimum_size = Vector2(270, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "Restart"
 
 [node name="MenuBtn" type="Button" parent="CanvasLayer/Control/GameOverPopup/Panel/VBoxContainer" unique_id=2058999101]
-custom_minimum_size = Vector2(250, 60)
+custom_minimum_size = Vector2(270, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "Main Menu"
 
 [node name="MainMenu" type="Panel" parent="CanvasLayer/Control" unique_id=1163560511]
@@ -706,10 +691,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -230.0
-offset_right = 200.0
-offset_bottom = 230.0
+offset_left = -250.0
+offset_top = -300.0
+offset_right = 250.0
+offset_bottom = 300.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_o5yvi")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MainMenu/Panel2" unique_id=1818538558]
@@ -723,28 +708,28 @@ theme_override_constants/separation = 0
 alignment = 1
 
 [node name="PlayBtn" type="Button" parent="CanvasLayer/Control/MainMenu/Panel2/VBoxContainer" unique_id=1797844223]
-custom_minimum_size = Vector2(250, 60)
+custom_minimum_size = Vector2(270, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "Play"
 
 [node name="SettingsBtn" type="Button" parent="CanvasLayer/Control/MainMenu/Panel2/VBoxContainer" unique_id=1039093033]
-custom_minimum_size = Vector2(250, 60)
+custom_minimum_size = Vector2(270, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "Settings"
 
 [node name="QuitBtn" type="Button" parent="CanvasLayer/Control/MainMenu/Panel2/VBoxContainer" unique_id=1394450386]
-custom_minimum_size = Vector2(250, 60)
+custom_minimum_size = Vector2(270, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "Quit"
 
 [connection signal="pressed" from="CanvasLayer/Control/GameScreen/PauseBtn" to="CanvasLayer" method="_on_pause_btn_pressed"]

@@ -49,3 +49,10 @@ func ShowGameoverPopup():
 
 func _on_quit_btn_pressed() -> void:
 	GameManager.Quit()
+
+
+func _on_jump_btn_button_down() -> void:
+	GameManager.jump_pressed = true
+
+func _on_jump_btn_button_up() -> void:
+	GameManager.jump_pressed = false

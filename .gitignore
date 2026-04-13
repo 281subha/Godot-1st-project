@@ -11,6 +11,10 @@ data_*/
 bin/
 obj/
 
+#build files
+*.apk
+*.idsig
+
 # OS files
 .DS_Store
 Thumbs.db
